@@ -1,0 +1,174 @@
+/* app wont pushed against the browser window edge */
+body {
+  margin: 20px;
+  background-color: rgb(173, 216, 230);
+}
+
+/* 
+   This CSS code defines styles for a container element with the class '.app-container'.
+   It sets up a CSS Grid layout with a single column that occupies the entire available width.
+   The column width is set to '1fr', meaning it will take up an equal fraction of the available space.
+*/
+.app-container {
+  
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+
+/* 
+   This CSS code applies styles to the '.app-container' class when the viewport width is equal to or greater than 600px.
+   It changes the layout to a grid, with two columns: 
+   - The first column has a fixed width of 200px.
+   - The second column occupies the remaining space.
+   It sets a gap of 20px between grid items.
+*/
+@media (min-width: 600px) {
+  .app-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+  }
+}
+
+/* 
+   This CSS code defines styles for a grid layout with the class '.notes-grid'.
+   It sets up a grid with flexible columns:
+   - The columns will fill the available space, with a minimum width of 250px and expanding to fit the remaining space.
+   - Each row has a minimum height of 250px and adjusts its height based on the content.
+   It sets a gap of 20px between grid items.
+*/
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(250px, auto); /* Adjust row height based on content */
+  gap: 20px;
+}
+
+
+/* 
+   Styles for individual note items with the class '.note-item':
+   - Utilizes flexbox to create a column layout for stacking elements vertically.
+   - Applies a subtle border with a soft blue color (#9fa8da) for delineation.
+   - Adds padding of 10px to provide spacing within each item.
+   - Rounds the corners with a border radius of 5px for a softer appearance.
+   - Sets a background color of light gray (#e0d8d8) for the note items.
+   - Applies a box shadow to add depth and separation from surrounding elements.
+   - Changes the cursor to a pointer to indicate interactivity.
+*/
+.note-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #9fa8da; 
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e0d8d8;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* pushes the header click button to the right */
+.notes-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 
+   Styles the buttons within the notes header:
+   - Sets the font size to 16 pixels.
+   - Makes the background transparent.
+   - Removes the border.
+   - Changes the cursor to a pointer.
+   - Sets the maximum width to fit its content.
+*/
+.notes-header button {
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  max-width: fit-content;
+
+}
+
+/* 
+   Styles for h2 elements:
+   - Resets margin to zero to remove default spacing.
+*/
+h2 {
+  margin: 0;
+}
+
+/* 
+   Styles for the note form container with the class '.note-form':
+   - Utilizes flexbox to arrange elements in a column layout.
+   - Sets a gap of 20px between child elements for spacing.
+*/
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap:20px
+
+}
+
+/* 
+   Styles for textarea and input elements:
+   - Applies border radius, border, padding, and font size for consistent styling.
+*/
+textarea, input {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* 
+   Styles for buttons within the note form with the class '.note-form':
+   - Adds border radius, background color, border, padding, font size, and text color.
+*/
+.note-form button {
+  border-radius: 5px;
+  background-color: rgb(62, 66, 184);
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+}
+
+/* 
+   Hover styles for buttons within the note form:
+   - Changes background color and cursor on hover.
+*/
+.note-form button:hover{
+  background-color: rgb(89, 91, 196);
+  cursor: pointer;
+}
+
+
+/* 
+   Styles for the container of edit buttons:
+   - Displays buttons in a row with equal spacing between them.
+   - Adds a gap of 5px between buttons.
+*/
+.edit-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+/* 
+   Styles for individual buttons within the edit buttons container:
+   - Each button takes up equal space within the container.
+*/
+.edit-buttons button {
+  flex: 1;
+}
+
+/* 
+   Styles for the last button within the edit buttons container:
+   - Sets the background color to red.
+   - Sets text color to white.
+*/
+.edit-buttons button:last-of-type {
+  background-color: rgb(220, 89, 89);
+  color: white;
+}
