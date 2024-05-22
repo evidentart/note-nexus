@@ -194,57 +194,57 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <form 
-        className="note-form" 
-        //when the form is submitted, we want to call our handleSubmit function
-        onSubmit={(event) => 
-          selectedNote
-            ? handleUpdateNote(event) //if we have a selected note, call the handleUpdateNote function
-            : handleAddNote(event)} //if we don't have a selected note, call the handleAddNote function
-      > 
-        <input
-          value={title}
-          onChange= {(event) =>
-            setTitle(event.target.value) //changes the title state variable based on user input
-          }
-          placeholder="title"
-          required
-        ></input>
-        <textarea
-          value={content}
-          onChange={(event) =>
-            setContent(event.target.value) //changes the content state variable based on user input
-          }
-          placeholder="Content"
-          rows={10}
-          required
-        ></textarea>
-        
-        {selectedNote ? ( // if we have a selected note, show the save button
-          <div className= "edit-buttons">
-            <button type="submit">Save</button>
-            <button onClick={handleCancel}> 
-              Cancel
-            </button>
-          </div>
-        ) : (
-          <button type="submit">Add Note</button> // if we don't have a selected note, show the add button
-        )}
-      </form>
+      <h1 className="program-title">Note-Nexus</h1>
+      <div className="note-form-container">
+        <form 
+          className="note-form"
+          onSubmit={(event) => 
+            selectedNote
+              ? handleUpdateNote(event)
+              : handleAddNote(event)}
+        >
+          <input
+            value={title}
+            onChange={(event) =>
+              setTitle(event.target.value)
+            }
+            placeholder="Title"
+            required
+          ></input>
+          <textarea
+            value={content}
+            onChange={(event) =>
+              setContent(event.target.value)
+            }
+            placeholder="Content"
+            rows={10}
+            required
+          ></textarea>
+          
+          {selectedNote ? (
+            <div className="edit-buttons">
+              <button type="submit">Save</button>
+              <button onClick={handleCancel}> 
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <button type="submit">Add Note</button>
+          )}
+        </form>
+      </div>
       <div className="notes-grid">
-        {/* use map function to display current markup below for each note, we have five  notes, so it will run 5 times */}
         {notes.map((note) => (
           <div className="note-item"
-            //when the user clicks on a note, we want to call our handleNoteClick function
-            onClick={() => handleNoteClick(note)} 
+            onClick={() => handleNoteClick(note)}
           >
             <div className="notes-header">
               <button onClick={(event) =>
                 deleteNote(event, note.id)
               }
-          >
-              x
-            </button>
+              >
+                x
+              </button>
             </div>
             <h2>{note.title}</h2>
             <p>{note.content}</p>
